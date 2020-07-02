@@ -5,8 +5,10 @@ public with sharing class ContactController {
     
     @AuraEnabled(cacheable=true)
     public static List<Contact> getContacts() {
-        throw new AuraHandledException('Forced error');
-        /* return [
+        // uncomment the following line for the final challenge
+        // throw new AuraHandledException('Forced error');
+        // comment this return for the final challenge
+        return [
             SELECT
                 FirstName
                 ,LastName
@@ -14,6 +16,6 @@ public with sharing class ContactController {
             FROM Contact
             WITH SECURITY_ENFORCED
             ORDER BY FirstName
-        ]; */
+        ];
     }
 }
