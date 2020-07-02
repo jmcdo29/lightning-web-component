@@ -4,20 +4,6 @@ public with sharing class AccountController {
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<Contact> getRelatedContacts(Id searchId) {
-        return [
-            SELECT
-                Name
-                ,Title
-                ,Email
-                ,Phone
-            FROM Contact
-            WHERE id = :searchId
-            WITH SECURITY_ENFORCED
-        ];
-    }
-
-    @AuraEnabled(cacheable=true)
     public static List<Account> getAccounts() {
         return [
             SELECT
